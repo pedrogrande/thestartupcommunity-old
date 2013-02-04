@@ -1,0 +1,24 @@
+<%= simple_form_for @business_profile, :html => {:multipart => true} do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :profile_type, :label => 'Select your business type', :required => true %>
+    <%= f.input :name, :label => 'Business name' %>
+    <%= f.input :email, :label => 'Email' %>
+    <%= f.input :phone, :label => 'Phone' %>
+    <%= f.input :description, :label => 'Description', :input_html => { :rows => 5, :class => "span7" }, :required => true %>
+    <%= f.input :url, :label => 'Business website URL', :placeholder => "http://www.my-business.com" %>
+    <%= f.input :twitter, :label => 'Twitter account', :placeholder => '@handle' %>
+    <%= f.input :facebook, :label => 'Facebook page', :placeholder => "https://facebook.com/your-business-name" %>
+    <%= f.input :google, :label => 'Google+ page', :placeholder => 'https://plus.google.com/xxxxx' %>
+    <%= f.input :employees, :label => 'No. of employees', :collection => ['1', '2-5', '6-10', '11-20', '21-50', '50+'] %>
+    <%= f.input :address, :label => 'Business address', :placeholder => 'Street address, suburb' %>
+    <%= f.input :hiring, :label => 'Are you currently hiring?' %>
+    <p>Current logo<br /><%= image_tag @business_profile.image_url(:thumb), :class => "profile-pic" if @business_profile.image_url %></p>
+    <%= f.input :image, :as => :file, :label => "Logo" %>
+  </div>
+
+  
+    <%= f.submit 'Update your business', :class => "btn btn-success" %>
+  
+<% end %>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "The Startup Community - Sydney" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "The Startup Community - Sydney" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+    <style>
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      .content {
+        margin-top: 80px;
+      }
+    </style>
+    
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <%= yield %>
+    <%= render 'layouts/navigation' %>
+      
+      <%= render 'layouts/footer' %>    
+      <%= yield :scripts %>
+      
+  </body>
+</html>

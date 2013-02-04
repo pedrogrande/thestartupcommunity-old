@@ -1,8 +1,30 @@
-<h2>Sign in</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.input :email, :autofocus => true %>
-  <%= f.input :password %>
-  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
-<% end %>
-<%= render "devise/shared/links" %>
+<div class="row">
+  <div class="span3">
+
+    <h2>Sign in</h2>
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.input :email, :autofocus => true %>
+      <%= f.input :password %>
+      <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+      <%= f.button :submit, "Sign in", :class => 'btn-primary' %>
+    <% end %>
+    <%= link_to "Forgot your password?", new_password_path('user') %>
+  </div>
+  <div class="span4">
+    <h2><center> -- or -- </center></h2>
+  </div>
+  <div class="span5">
+    <h2>Register</h2>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.error_notification %>
+      <%= display_base_errors resource %>
+      <%= f.input :name, :autofocus => true %>
+      <%= f.input :email, :required => true %>
+      <%= f.input :password, :required => true %>
+      <%= f.input :password_confirmation, :required => true %>
+      <%= f.input :opt_in, :label => false, :inline_label => 'It is ok to send me an email when the functionality of the site is substantially upgraded.' %>
+      <%= f.input :accept_terms, :label => false, :inline_label => 'I agree to the terms and conditions and privacy policy of this site.' %>
+      <%= f.button :submit, 'Register', :class => 'btn-primary' %>
+    <% end %>
+  </div>
+</div>

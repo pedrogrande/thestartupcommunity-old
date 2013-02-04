@@ -1,0 +1,52 @@
+<div class="row">
+  <div class ="span12">
+    <h1>Business Profiles</h1>
+    <br />
+  </div>  
+</div>
+
+<div class="row">
+  <div class="span3">
+      <h3>View by type</h3>
+      <% if @profile_types %>
+        
+        <% @profile_types.each do |profile_type| %>
+        <p>
+          <%= link_to profile_type.name, business_profiles_url(:tag => profile_type), :class => "btn btn-info" %>
+        </p>
+        <% end %>
+      <% end %>
+      <p>
+        <%= link_to 'Clear filter', business_profiles_url, :class => "btn btn-warning" %>
+      </p>
+      <p><%= link_to "Create your business profile", new_business_profile_path, :class => "btn btn-success" %></p>
+    </div>
+
+  <div class="span9">
+    <br />
+    <table class="table">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Business type</th>
+        </tr>   
+
+    <% @business_profiles.each do |business_profile| %>
+      <tr>
+        <td><%= image_tag(business_profile.image_url(:thumb), :class => "profile-pic") %></td>
+        <td><%= link_to business_profile.name, business_profile_path(business_profile) %></td>
+        <td><%= business_profile.description[0..200] %></td>
+        <td>
+          <% business_profile.profile_types.each do |pt| %>
+            <%= link_to pt.name, business_profiles_url(:tag => pt), :class => "btn btn-info" %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
+</div>
+
+
+<br />
+

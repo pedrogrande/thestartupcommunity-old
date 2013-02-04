@@ -11,7 +11,46 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204090350) do
+ActiveRecord::Schema.define(:version => 20130204111015) do
+
+  create_table "business_profile_types", :force => true do |t|
+    t.integer  "business_profile_id"
+    t.integer  "profile_type_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "business_profile_types", ["business_profile_id"], :name => "index_business_profile_types_on_business_profile_id"
+  add_index "business_profile_types", ["profile_type_id"], :name => "index_business_profile_types_on_profile_type_id"
+
+  create_table "business_profiles", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "google"
+    t.string   "employees"
+    t.string   "slug"
+    t.string   "address"
+    t.boolean  "hiring"
+    t.string   "image"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "linkedin"
+    t.string   "github"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+  end
+
+  create_table "profile_types", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +62,55 @@ ActiveRecord::Schema.define(:version => 20130204090350) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       :limit => 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "user_business_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "business_profile_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "user_business_profiles", ["business_profile_id"], :name => "index_user_business_profiles_on_business_profile_id"
+  add_index "user_business_profiles", ["user_id"], :name => "index_user_business_profiles_on_user_id"
+
+  create_table "user_profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.text     "about"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "url"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "google"
+    t.string   "slug"
+    t.boolean  "mentor"
+    t.string   "image"
+    t.string   "name"
+    t.string   "tagline"
+    t.string   "linkedin"
+    t.string   "github"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_profiles", ["user_id"], :name => "index_user_profiles_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                :default => "", :null => false
@@ -48,6 +136,9 @@ ActiveRecord::Schema.define(:version => 20130204090350) do
     t.integer  "invitation_limit"
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
+    t.string   "slug"
+    t.boolean  "opt_in"
+    t.boolean  "accept_terms"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -25,3 +25,14 @@ gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.3.2", :group => :development
 gem "binding_of_caller", ">= 0.6.8", :group => :development
+gem 'font-awesome-sass-rails'
+gem 'bootstrap-wysihtml5-rails'
+gem 'turbolinks'
+gem "friendly_id"
+gem 'acts-as-taggable-on'
+gem 'carrierwave'
+gem "rmagick"
+gem "hominid"
+gem "google_visualr", ">= 2.1.2"
+gem "jquery-datatables-rails", ">= 1.10.0"
+gem "gmaps4rails"
