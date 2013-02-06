@@ -1,0 +1,23 @@
+<br />
+    <table class="table">
+      <tr>
+        <th width="10%"></th>
+        <th width="25%">Name</th>
+        <th width="40%">Description</th>
+        <th>Business type</th>
+        </tr>   
+
+    <% @business_profiles.each do |business_profile| %>
+
+      <tr>
+        <td><%= image_tag(business_profile.image_url(:thumb), :class => "profile-pic") %></td>
+        <td><strong><%= link_to business_profile.name, business_profile_path(business_profile) %></strong></td>
+        <td><%= business_profile.description[0..200] %></td>
+        <td>
+          <% business_profile.profile_types.each do |pt| %>
+            <%= link_to pt.name, business_profiles_url(:tag => pt) %><br />
+          <% end %>
+        </td>      </tr>
+
+    <% end %>
+  </table>

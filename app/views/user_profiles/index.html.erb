@@ -1,40 +1,19 @@
 <div class="row">
   <div class ="span9">
-    <h1>People Profiles</h1>
+    <h1><i class="icon-group"></i> People Profiles</h1>
     <br />
   </div>
   <div class="span3">
-    <% if !current_user.user_profile %>
-      <p pull-right><%= link_to 'Create your personal profile', new_user_profile_path, :class => "btn btn-success" %></p>
+    <% if user_signed_in? %>
+      <% if !current_user.user_profile %>
+        <p pull-right><%= link_to 'Create your personal profile', new_user_profile_path, :class => "btn btn-success" %></p>
+      <% end %>
     <% end %>
   </div>
 </div>
 <div class="row">
   <div class="span12">
-    <table class="table">
-      <% @user_profiles.each do |user_profile| %>
-        <tr>
-            <td width="100px"><%= image_tag(user_profile.image_url(:thumb), :class => "profile-pic") %></td>
-            <td width="100px"><strong><%= link_to user_profile.get_user_name, user_profile_path(user_profile) %></strong></td>
-            <td>
-              <p><%= user_profile.tagline %></p>
-              <p><strong>About:</strong> <%= user_profile.about[0, 200] %></p>
-              <br />
-
-             
-            </td>
-            <td width="200px">
-              <% if user_profile.user.business_profiles.count > 0 %>
-                  
-                 <% user_profile.user.business_profiles.each do |business_profile| %>
-                 <p><strong><%= link_to business_profile.name, business_profile_path(business_profile) %></strong></p>
-                <% end %>
-              <% end %>
-              <br />
-            </td>
-        </tr>
-      <% end %>
-    </table>
+    <%= render 'user_table' %>
   </div>
 </div>
 

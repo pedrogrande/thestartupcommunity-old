@@ -1,0 +1,22 @@
+<div class="row">
+  <div class ="span9">
+    <i class="icon-group icon-4x"></i> <h1>People Profiles</h1>
+    <br />
+  </div>
+  <div class="span3">
+    <% if user_signed_in? %>
+      <% if !current_user.user_profile %>
+        <p pull-right><%= link_to 'Create your personal profile', new_user_profile_path, :class => "btn btn-success" %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="span12">
+    <%= render 'user_table' %>
+  </div>
+</div>
+
+
+<br />
+

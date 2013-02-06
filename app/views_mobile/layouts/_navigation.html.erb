@@ -1,0 +1,42 @@
+    <!-- NAVBAR
+    ================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar">
+          <div class="navbar-inner">
+            
+            
+            <%= link_to "The Startup Community - Sydney", root_path, :class => 'brand' %>
+            
+              <ul class="nav">
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to 'Profiles', user_profiles_path %></li>
+                    <li><%= link_to 'Startups', business_profiles_path %></li>
+                    <li><%= link_to 'Sydney Startup Map', startup_maps_path %></li>
+                    <li><%= link_to 'Privacy', privacy_path %></li>
+                    <li><%= link_to 'Terms', terms_path %></li>
+                    <li><%= link_to 'Contact', new_contact_form_path, :title => "Report abuse/problems, suggest a feature" %></li>
+                    <% if @about_page %>
+                      <li><%= link_to 'About', about_path(@about_page), :title => "About The Startup Community" %></li>
+                    <% end %>
+                    <% if user_signed_in? %>
+                      <li><%= link_to 'My account', user_path(current_user) %></li>
+                      <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+                      <% if current_user.has_role? :admin %>
+                        <li><%= link_to 'Admin', admin_path %></li>
+                      <% end %>
+                    <% else %>
+                      <li><%= link_to 'Login/Sign up', new_user_session_path %></li>
+                    <% end %>
+                </ul>
+             
+            
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->

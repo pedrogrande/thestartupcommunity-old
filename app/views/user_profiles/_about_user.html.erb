@@ -1,0 +1,11 @@
+<h3>About</h3>
+    <p><%= image_tag(@user_profile.image_url(:thumb), :class => "user-pic") %></p>
+    
+      <p><%= @user_profile.tagline %><br />
+      
+    </p>
+
+    <p>
+      <b>About:</b><br />
+      <%= @user_profile.about %>
+    </p>

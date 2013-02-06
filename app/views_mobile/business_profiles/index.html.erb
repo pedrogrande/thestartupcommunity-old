@@ -1,0 +1,21 @@
+<div class="row">
+  <div class ="span9">
+    <i class="icon-building icon-4x"></i> 
+    <h1>Business Profiles</h1>
+    <br />
+  </div>
+  <div class="span3">
+    <p><%= link_to "Create your business profile", new_business_profile_path, :class => "btn btn-success" %></p>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <%= render 'filter_list' %>
+  </div>
+
+  <div class="span9">
+    <%= render 'business_list' %>
+  </div>
+</div>
+
+

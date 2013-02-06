@@ -7,113 +7,13 @@
 
 <div class="row">
   <div class="span4">
-    <%= image_tag(@business_profile.image_url(:thumb), :class => "user-pic") %>
-    <p>
-      <% @business_profile.profile_types.each_with_index do |profile_type, index| %>
-        <%= profile_type.name %> <% if index < @business_profile.profile_types.count - 1 %> | <% end %>
-      <% end %>
-    </p>
-    <p>
-      <b>About:</b><br />
-      <%= @business_profile.description %>
-    </p>
-    <p>
-      <b>Hiring?</b> 
-      <% if @business_profile.hiring %>Yes<% else %>No<% end %>
-    </p>
+    <%= render 'about' %>
     
-    <h3>People</h3>
-    
-    <% @business_profile.users.each do |user| %>
-      <% if user.user_profile %>
-        <p><%= image_tag user.user_profile.image_url(:thumb), :class => "profile-pic" if user.user_profile.image_url %>
-        <b><%= link_to user.name, user_profile_path(user.user_profile) %></b></p>
-      <% end %>
-    <% end %>
-
-
-
-
-    <% if user_signed_in? && !current_user.works_here?(@business_profile) %>
-      <p></p>
-      <p><%= link_to 'I work here', join_business_profile_path, :method => :post, :class => 'btn' %></p>
-    <% end %>
-    <% if user_signed_in? && current_user.works_here?(@business_profile) %>
-      <p><%= link_to 'I no longer work here', leave_business_profile_path, :method => :post, :class => 'btn' %></p>
-    <% end %>
   </div>
 
   <div class="span4">
-    <table class="table">
-      <% if @business_profile.address.to_s != '' %>
-        <tr>
-          <th width="50px"> &nbsp;<i class="icon-map-marker icon-2x"></i> </th>
-          <td><a href="http://maps.google.com/maps?q=<%= @business_profile.address %>"><%= @business_profile.address %></a></td>
-        </tr>
-      <% end %>
-      <% if @business_profile.email.to_s != '' %>
-        <tr>
-          <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
-          <td><a href="mailto:'<%= @business_profile.email %>'"><%= @business_profile.email %></a></td>
-        </tr>
-      <% end %>
-      <% if @business_profile.phone.to_s != '' %>
-        <tr>
-          <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
-          <td><a href="tel:'<%= @business_profile.phone %>'"><%= @business_profile.phone %></a></td>
-        </tr>
-      <% end %>
-      <% if @business_profile.url.to_s != '' %>
-        <tr>
-          <th><i class="icon-laptop icon-2x"></i></th>
-          <td><a href='<%= @business_profile.url.to_s %>' target="_blank"><%= @business_profile.url.to_s %></a></td>
-        </tr>      
-      <% end %>
-      <% if @business_profile.twitter.to_s != '' %>
-        <tr>
-          <th><i class="icon-twitter icon-2x"></i></th>
-          <td><a href='<%= @business_profile.twitter.to_s %>' target="_blank"><%= @business_profile.twitter %></a></td>
-        </tr>
-      <% end %>
-      <% if @business_profile.facebook.to_s != '' %>
-        <tr>
-          <th>&nbsp;<i class="icon-facebook icon-2x"></i></th>
-          <td>
-            
-              <a href='<%= @business_profile.facebook.to_s %>' target="_blank">Facebook profile</a>
-          </td>
-        </tr>
-      <% end %>
-      <% if @business_profile.google.to_s != '' %>
-        <tr>
-          <th><i class="icon-google-plus icon-2x"></i></th>
-          <td>
-              <a href='<%= @business_profile.google.to_s %>' target="_blank">Google+ page</a>
-            </td>
-        </tr>
-      <% end %>
-      <% if @business_profile.linkedin.to_s != '' %>
-        <tr>
-          <th><i class="icon-linkedin icon-2x"></i></th>
-          <td>
-              <a href='<%= @business_profile.linkedin.to_s %>' target="_blank">LinkedIn profile</a>
-          </td>
-        </tr>
-      <% end %>
-      <% if @business_profile.github.to_s != '' %>
-        <tr>
-          <th><i class="icon-github-alt icon-2x"></i></th>
-          <td>
-              <a href='<%= @business_profile.github.to_s %>' target="_blank">Github profile</a>
-          </td>
-        </tr>
-      <% end %>
-
-    </table>
-    <% if @business_profile.belongs?(current_user) %>
-      <%= link_to 'Edit', edit_business_profile_path(@business_profile), :class=> "btn btn-warning" %>
-      <%= link_to 'Delete', @business_profile, method: :delete, data: { confirm: 'Are you sure you want to delete this profile?' }, :class=> "btn btn-danger" %>
-    <% end %>
+    <%= render 'contact' %>
+    
     
   </div>
   <div class="span4">

@@ -1,18 +1,11 @@
 <div class="container">
+  <p id="notice"><%= notice %></p>
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="span3">
-          
-          <h2>Be part of your startup community</h2>
-          <p>
-            Join your fellow Sydney entrepreneurs, find out where they work, who they work with. Connect with tech journalists, VCs and find businesses that specialise in servicing startups.
-          </p>
-          
-        </div><!-- /.span4 -->
-        <div class="span4">
-          
-          <h2>Recently added startups</h2>
+        
+        <div class="span6 ">
+          <h3><i class="icon-building icon-3x"></i> Recently added startup profiles</h3>
           <table class="table table-condensed">
             <% if @business_profiles.count > 0 %>
             <% @business_profiles.each do |profile| %>
@@ -29,8 +22,8 @@
 
           
         </div><!-- /.span4 -->
-        <div class="span5">
-          <h2>Recently added profiles</h2>
+        <div class="span6 ">
+          <h3><i class="icon-group icon-3x"></i> Recently added user profiles</h3>
           <table class="table table-condensed">
             <% if @user_profiles.count > 0 %>
             <% @user_profiles.each do |user_profile| %>
@@ -43,6 +36,7 @@
             <% end %>
           <% end %>
           </table>
+        
         </div><!-- /.span4 -->
       </div><!-- /.row -->
 

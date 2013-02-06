@@ -1,0 +1,21 @@
+<table class="table">
+      <tr>
+        <th></th>
+        <th></th>
+        <th>About</th>
+      </tr>
+      <% @user_profiles.each do |user_profile| %>
+        <tr>
+            <td><%= image_tag(user_profile.image_url(:thumb), :class => "profile-pic") %></td>
+            <td><strong><%= link_to user_profile.get_user_name, user_profile_path(user_profile) %></strong></td>
+            <td>
+              <p><%= user_profile.tagline %></p>
+              <p><strong>About:</strong> <%= user_profile.about[0, 200] %></p>
+              <br />
+
+             
+            </td>
+            
+        </tr>
+      <% end %>
+    </table>

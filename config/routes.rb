@@ -1,5 +1,20 @@
 Tsc003::Application.routes.draw do
   
+  get "mobile_menu/index", :id => "mobile_menu"
+  match "mobile_menu" => "mobile_menu#index"
+
+  resources :abouts
+
+
+  resources :contact_forms
+
+
+  get "terms/index", :id => "terms"
+  match "terms" => "terms#index"
+
+  get "privacy/index", :id => "privacy"
+  match "privacy" => "privacy#index"
+
   get "startup_maps/index", :id => "startup_maps"
   match "startup_maps" => "startup_maps#index"
 

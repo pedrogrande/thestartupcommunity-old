@@ -1,0 +1,19 @@
+<h2>Business profile types</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @profile_types.each do |profile_type| %>
+  <tr>
+    <td><%= profile_type.name %></td>
+    <td><%= link_to 'Edit', edit_profile_type_path(profile_type) %></td>
+    <td><%= link_to 'Delete', profile_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New Profile type', new_profile_type_path, :class => "btn btn-success" %>

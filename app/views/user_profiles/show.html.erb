@@ -8,89 +8,13 @@
 
 <div class="row">
   <div class="span3">
-    <h3>About</h3>
-    <p><%= image_tag(@user_profile.image_url(:thumb), :class => "user-pic") %></p>
-    
-      <p><%= @user_profile.tagline %><br />
-      
-    </p>
-
-    <p>
-      <b>About:</b><br />
-      <%= @user_profile.about %>
-    </p>
+    <%= render 'about_user' %>
   </div>
 
   <div class="span4">
-    <h3>Contact details</h3>
-    <table class="table">
-      <% if @user_profile.email.to_s != '' %>
-        <tr>
-          <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
-          <td><a href="mailto:'<%= @user_profile.email %>'"><%= @user_profile.email %></a></td>
-        </tr>
-      <% end %>
-      <% if @user_profile.phone.to_s != '' %>
-        <tr>
-          <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
-          <td><a href="tel:'<%= @user_profile.phone %>'"><%= @user_profile.phone %></a></td>
-        </tr>
-      <% end %>
-      <% if @user_profile.url.to_s != '' %>
-        <tr>
-          <th><i class="icon-laptop icon-2x"></i></th>
-          <td><a href='<%= @user_profile.url.to_s %>' target="_blank"><%= @user_profile.url.to_s %></a></td>
-        </tr>      
-      <% end %>
-      <% if @user_profile.twitter.to_s != '' %>
-        <tr>
-          <th><i class="icon-twitter icon-2x"></i></th>
-          <td><a href='<%= @user_profile.twitter.to_s %>' target="_blank"><%= @user_profile.twitter %></a></td>
-        </tr>
-      <% end %>
-      <% if @user_profile.facebook.to_s != '' %>
-        <tr>
-          <th>&nbsp;<i class="icon-facebook icon-2x"></i></th>
-          <td>
-            
-              <a href='<%= @user_profile.facebook.to_s %>' target="_blank">Facebook profile</a>
-          </td>
-        </tr>
-      <% end %>
-      <% if @user_profile.google.to_s != '' %>
-        <tr>
-          <th><i class="icon-google-plus icon-2x"></i></th>
-          <td>
-              <a href='<%= @user_profile.google.to_s %>' target="_blank">Google+ page</a>
-            </td>
-        </tr>
-      <% end %>
-      <% if @user_profile.linkedin.to_s != '' %>
-        <tr>
-          <th><i class="icon-linkedin icon-2x"></i></th>
-          <td>
-              <a href='<%= @user_profile.linkedin.to_s %>' target="_blank">LinkedIn profile</a>
-          </td>
-        </tr>
-      <% end %>
-      <% if @user_profile.github.to_s != '' %>
-        <tr>
-          <th><i class="icon-github-alt icon-2x"></i></th>
-          <td>
-              <a href='<%= @user_profile.github.to_s %>' target="_blank">Github profile</a>
-          </td>
-        </tr>
-      <% end %>
-    </table>
+    <%= render 'contact_user' %>
   </div>
   <div class="span5">
-    <h3>Business profiles</h3>
-    <% if @user_profile.user.business_profiles %>
-
-     <% @user_profile.user.business_profiles.each do |business_profile| %>
-     <p><%= image_tag(business_profile.image_url(:thumb), :class => "profile-pic") %>
-     <strong><%= link_to business_profile.name, business_profile_path(business_profile) %></strong></p>
-    <% end %>
-  <% end %>
+    <%= render 'user_business' %>
   </div>
 </div>

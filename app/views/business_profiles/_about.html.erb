@@ -1,0 +1,31 @@
+<%= image_tag(@business_profile.image_url(:thumb), :class => "user-pic") %>
+    <p>
+      <% @business_profile.profile_types.each_with_index do |profile_type, index| %>
+        <%= profile_type.name %> <% if index < @business_profile.profile_types.count - 1 %> | <% end %>
+      <% end %>
+    </p>
+    <p>
+      <b>About:</b><br />
+      <%= @business_profile.description %>
+    </p>
+    <p>
+      <b>Hiring?</b> 
+      <% if @business_profile.hiring %>Yes<% else %>No<% end %>
+    </p>
+    
+    <h3>People</h3>
+    
+    <% @business_profile.users.each do |user| %>
+      <% if user.user_profile %>
+        <p><%= image_tag user.user_profile.image_url(:thumb), :class => "profile-pic" if user.user_profile.image_url %>
+        <b><%= link_to user.name, user_profile_path(user.user_profile) %></b></p>
+      <% end %>
+    <% end %>
+
+    <% if user_signed_in? && !current_user.works_here?(@business_profile) && @business_profile.owner != current_user.id %>
+      <p></p>
+      <p><%= link_to 'I work here', join_business_profile_path, :method => :post, :class => 'btn' %></p>
+    <% end %>
+    <% if user_signed_in? && current_user.works_here?(@business_profile) && @business_profile.owner != current_user.id %>
+      <p><%= link_to 'I no longer work here', leave_business_profile_path, :method => :post, :class => 'btn' %></p>
+    <% end %>

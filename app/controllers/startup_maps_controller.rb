@@ -1,4 +1,5 @@
 class StartupMapsController < ApplicationController
+  before_filter :check_for_mobile
   layout "startup_map"
   def index
     

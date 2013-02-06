@@ -1,13 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-
-  def tagged
-    if params[:tag].present?
-      @user_profiles = UserProfile.tagged_with(params[:tag])
-    else
-      @user_profiles = UserProfile.postall
-    end
-  end
+  before_filter :check_for_mobile, :only => [:show]
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'

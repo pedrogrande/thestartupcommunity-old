@@ -19,13 +19,13 @@ user = User.create! :name => 'Pete Argent', :email => 'peter@sydneydevcamp.com',
 puts 'New user created: ' << user.name
 user.add_role :admin
 puts 'SETTING UP PROFILE TYPES'
-profile0 = ProfileType.create! :name => 'Coding School'
+profile0 = ProfileType.create! :name => 'Education'
 puts 'profile0 created'
 profile1 = ProfileType.create! :name => 'Co-working Space'
 puts 'profile1 created'
 profile2 = ProfileType.create! :name => 'Startup'
 puts 'profile2 created'
-profile3 = ProfileType.create! :name => 'Incubator'
+profile3 = ProfileType.create! :name => 'Accelerator/Incubator'
 puts 'profile3 created'
 profile4 = ProfileType.create! :name => 'Tech Blog'
 puts 'profile4 created'

@@ -1,5 +1,6 @@
 class BusinessProfilesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :check_for_mobile
 
   def join
     @business_profile = BusinessProfile.find(params[:id])
@@ -21,6 +22,7 @@ class BusinessProfilesController < ApplicationController
     if @user.works_here?(@business_profile)
       @user.business_profiles.delete(@business_profile)
       flash[:notice] = 'You have been removed from this business'
+
     else
       flash[:error] = 'You are not associated with this business_profile'
     end
@@ -31,6 +33,7 @@ class BusinessProfilesController < ApplicationController
   # GET /business_profiles.json
   def index
     @profile_types = ProfileType.joins(:business_profiles)
+    @tag = params[:tag]
     if params[:tag].present?
       tag_value = params[:tag]
       @business_profiles = BusinessProfile.joins(:business_profile_types).where(:business_profile_types => {:profile_type_id => tag_value})
@@ -76,6 +79,7 @@ class BusinessProfilesController < ApplicationController
   def create
     @business_profile = BusinessProfile.new(params[:business_profile])
     @business_profile.users << current_user
+    @business_profile.owner = current_user.id
 
     respond_to do |format|
       if @business_profile.save

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @contact_form.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contact_form.email %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @contact_form.phone %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @contact_form.subject %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @contact_form.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_form_path(@contact_form) %> |
+<%= link_to 'Back', contact_forms_path %>

@@ -1,0 +1,18 @@
+<h3>View by type</h3>
+      <% if @profile_types %>
+        
+        <% @profile_types.each do |profile_type| %>
+        <% if profile_type.id == @tag.to_i %>
+        <p>
+          <%= link_to profile_type.name, business_profiles_url(:tag => profile_type), :class => "btn btn-primary btn-fixed-width-3" %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to profile_type.name, business_profiles_url(:tag => profile_type), :class => "btn btn-info btn-fixed-width-3" %>
+        </p>
+        <% end %>
+      <% end %>
+    <% end %>
+      <p>
+        <%= link_to 'Clear filter', business_profiles_url, :class => "btn btn-warning btn-fixed-width-3" %>
+      </p>

@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204111015) do
+ActiveRecord::Schema.define(:version => 20130206072028) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "business_profile_types", :force => true do |t|
     t.integer  "business_profile_id"
@@ -44,6 +50,18 @@ ActiveRecord::Schema.define(:version => 20130204111015) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
+    t.integer  "owner"
+    t.boolean  "responsible"
+  end
+
+  create_table "contact_forms", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "email",      :null => false
+    t.string   "phone"
+    t.string   "subject",    :null => false
+    t.text     "content",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "profile_types", :force => true do |t|
@@ -85,6 +103,8 @@ ActiveRecord::Schema.define(:version => 20130204111015) do
     t.integer  "business_profile_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.boolean  "is_owner"
+    t.string   "position"
   end
 
   add_index "user_business_profiles", ["business_profile_id"], :name => "index_user_business_profiles_on_business_profile_id"

@@ -1,0 +1,51 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="span4">
+          <h1>Welcome to your<br />startup community.</h1>
+              <p class="lead">Create a profile for yourself, your startup company or your business that services the startup community.</p>
+              <%= link_to 'Start here', start_path, :class => "btn btn-success btn-large" %>
+        </div>
+        <br /><br />
+        <div class="span4 ">
+          <hr>
+          <h3><i class="icon-building icon-3x"></i> </h3><h3>Recently added startup profiles</h3>
+          <table class="table table-condensed">
+            <% if @business_profiles.count > 0 %>
+            <% @business_profiles.each do |profile| %>
+            
+              <tr>
+                <td><%= image_tag(profile.image_url(:thumb), :class => "home-pic") %></td>
+                <td><strong><%= link_to profile.name, business_profile_path(profile) %></strong></td>
+                <td><%= link_to profile.profile_types.first.name, business_profiles_url(:tag => profile.profile_types.first), :class => "btn btn-info" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          </table>
+
+
+          
+        </div><!-- /.span4 -->
+        <div class="span4 ">
+          <hr>
+          <h3><i class="icon-group icon-3x"></i> </h3><h3>Recently added user profiles</h3>
+          <table class="table table-condensed">
+            <% if @user_profiles.count > 0 %>
+            <% @user_profiles.each do |user_profile| %>
+            
+              <tr>
+                <td><%= image_tag(user_profile.image_url(:thumb), :class => "home-pic") %></td>
+                <td width="25%"><strong><%= link_to user_profile.user.name, user_profile_path(user_profile) %></strong></td>
+                <td width="60%"><%= user_profile.tagline[0..60] %><%= link_to '...', user_profile_path(user_profile) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          </table>
+        
+        </div><!-- /.span4 -->
+      </div><!-- /.row -->
+
+
+

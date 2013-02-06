@@ -1,11 +1,11 @@
 class BusinessProfile < ActiveRecord::Base
-  acts_as_gmappable
+  acts_as_gmappable :check_process => false
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :name, use: :slugged
 
   attr_accessible :address, :description, :email, :employees, :facebook, :google, :hiring,
-   :image, :name, :phone, :slug, :twitter, :url, :profile_type_ids, :specialty_list
+   :image, :name, :phone, :slug, :twitter, :url, :profile_type_ids, :specialty_list, :responsible
 
   validates_presence_of :description
   validates_uniqueness_of :slug
@@ -20,11 +20,11 @@ class BusinessProfile < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-    "<a href=\"#{url}\"><h4>#{name}</h4></a>" << "<h4>#{address}</h4>"
+    "<a href=\"#{url}\" target=\"_blank\"><h4>#{name}</h4></a>" << "<h4>#{address}</h4>" << "<h4>#{email}</h4>"
   end
 
   def belongs?(user)
-    self.users.include?(user)
+    self.users.first == user.id
   end  
 
   def find_tag(profile_type_id)

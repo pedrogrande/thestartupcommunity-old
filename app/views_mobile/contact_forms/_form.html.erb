@@ -1,0 +1,12 @@
+<%= simple_form_for(@contact_form) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, :required => true %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :phone %>
+    <%= f.input :subject, :required => true, :collection => ['Report bug', 'Report problem', 'Report abuse', 'Suggest feature', 'Other'] %>
+    <%= f.input :content, :required => true, :input_html => { :rows => 5, :class => "span7" } %>
+  </div>
+    <%= f.submit 'Send email', :class => 'btn btn-success' %>
+<% end %>

@@ -1,0 +1,31 @@
+<h1>Listing contact_forms</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Subject</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @contact_forms.each do |contact_form| %>
+  <tr>
+    <td><%= contact_form.name %></td>
+    <td><%= contact_form.email %></td>
+    <td><%= contact_form.phone %></td>
+    <td><%= contact_form.subject %></td>
+    <td><%= contact_form.content %></td>
+    <td><%= link_to 'Show', contact_form %></td>
+    <td><%= link_to 'Edit', edit_contact_form_path(contact_form) %></td>
+    <td><%= link_to 'Destroy', contact_form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contact form', new_contact_form_path %>

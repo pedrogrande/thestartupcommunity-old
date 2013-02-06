@@ -1,5 +1,6 @@
 class UserProfilesController < ApplicationController
 before_filter :authenticate_user!, :except => [:show, :index]
+before_filter :check_for_mobile, :only => [:show, :index]
 
 # GET /user_profiles
   # GET /user_profiles.json

@@ -1,0 +1,19 @@
+<h2>Business profiles</h2>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @business_profiles.each do |bp| %>
+  <tr>
+    <td><%= link_to bp.name, business_profile_path(bp) %></td>
+    <td><%= bp.users.first.try :name %></td>
+    <td><%= link_to 'Edit', edit_business_profile_path(bp) %></td>
+    <td><%= link_to 'Delete', bp, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<br />
