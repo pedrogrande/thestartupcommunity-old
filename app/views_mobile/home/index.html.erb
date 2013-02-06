@@ -17,7 +17,7 @@
             <% @business_profiles.each do |profile| %>
             
               <tr>
-                <td><%= image_tag(profile.image_url(:thumb), :class => "home-pic") %></td>
+                <td><%= image_tag(profile.image_url,:class => "home-pic") %></td>
                 <td><strong><%= link_to profile.name, business_profile_path(profile) %></strong></td>
                 <td><%= link_to profile.profile_types.first.name, business_profiles_url(:tag => profile.profile_types.first), :class => "btn btn-info" %></td>
               </tr>
@@ -36,7 +36,7 @@
             <% @user_profiles.each do |user_profile| %>
             
               <tr>
-                <td><%= image_tag(user_profile.image_url(:thumb), :class => "home-pic") %></td>
+                <td><%= image_tag(user_profile.image_url,:class => "home-pic") %></td>
                 <td width="25%"><strong><%= link_to user_profile.user.name, user_profile_path(user_profile) %></strong></td>
                 <td width="60%"><%= user_profile.tagline[0..60] %><%= link_to '...', user_profile_path(user_profile) %></td>
               </tr>

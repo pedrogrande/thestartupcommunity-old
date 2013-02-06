@@ -15,7 +15,7 @@
     <%= f.input :github, :label => 'Github profile URL' %>
     <%= f.input :linkedin, :label => 'LinkedIn profile URL' %>
     <%= f.input :github, :label => 'Github profile URL' %>
-    <p>Current profile pic<br /><%= image_tag @user_profile.image_url(:thumb), :class => "profile-pic" if @user_profile.image_url %></p>
+    <p>Current profile pic<br /><%= image_tag @user_profile.image_url,:class => "profile-pic" if @user_profile.image_url %></p>
     <%= f.input :image, :as => :file, :label => 'Choose new image' %>
   </div>
 

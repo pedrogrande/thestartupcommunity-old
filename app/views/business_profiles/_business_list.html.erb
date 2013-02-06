@@ -10,7 +10,7 @@
     <% @business_profiles.each do |business_profile| %>
 
       <tr>
-        <td><%= image_tag(business_profile.image_url(:thumb), :class => "profile-pic") %></td>
+        <td><%= image_tag(business_profile.image_url, :class => "profile-pic") %></td>
         <td><strong><%= link_to business_profile.name, business_profile_path(business_profile) %></strong></td>
         <td><%= business_profile.description[0..200] %></td>
         <td>

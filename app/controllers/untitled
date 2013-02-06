@@ -1,0 +1,12 @@
+@json = BusinessProfile.all.to_gmaps4rails do |bp, marker|
+      marker.infowindow render_to_string(:partial => "/startup_maps/map_marker", :locals => { :object => bp})
+      marker.picture({
+                      :picture => "http://localhost:3000/assets/3.png",
+                      :width   => 40,
+                      :height  => 40
+                     })
+      marker.title   bp.name
+      marker.sidebar "i'm the sidebar"
+      marker.json({ :id => bp.id })
+    end
+  end

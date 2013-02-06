@@ -2,7 +2,7 @@
     <% if @user_profile.user.business_profiles %>
 
      <% @user_profile.user.business_profiles.each do |business_profile| %>
-     <p><%= image_tag(business_profile.image_url(:thumb), :class => "profile-pic") %>
+     <p><%= image_tag(business_profile.image_url,:class => "profile-pic") %>
      <strong><%= link_to business_profile.name, business_profile_path(business_profile) %></strong></p>
     <% end %>
   <% end %>

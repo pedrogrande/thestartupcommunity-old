@@ -1,4 +1,4 @@
-<%= image_tag(@business_profile.image_url(:thumb), :class => "user-pic") %>
+<%= image_tag(@business_profile.image_url,:class => "user-pic") %>
     <p>
       <% @business_profile.profile_types.each_with_index do |profile_type, index| %>
         <%= profile_type.name %> <% if index < @business_profile.profile_types.count - 1 %> | <% end %>
@@ -17,7 +17,7 @@
     
     <% @business_profile.users.each do |user| %>
       <% if user.user_profile %>
-        <p><%= image_tag user.user_profile.image_url(:thumb), :class => "profile-pic" if user.user_profile.image_url %>
+        <p><%= image_tag user.user_profile.image_url,:class => "profile-pic" if user.user_profile.image_url %>
         <b><%= link_to user.name, user_profile_path(user.user_profile) %></b></p>
       <% end %>
     <% end %>

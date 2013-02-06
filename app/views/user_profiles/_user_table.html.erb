@@ -7,7 +7,7 @@
       </tr>
       <% @user_profiles.each do |user_profile| %>
         <tr>
-            <td width="100px"><%= image_tag(user_profile.image_url(:thumb), :class => "profile-pic") %></td>
+            <td width="100px"><%= image_tag(user_profile.image_url,:class => "profile-pic") %></td>
             <td width="100px"><strong><%= link_to user_profile.get_user_name, user_profile_path(user_profile) %></strong></td>
             <td>
               <p><%= user_profile.tagline %></p>

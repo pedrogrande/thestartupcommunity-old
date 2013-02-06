@@ -15,7 +15,7 @@
   <h2>My profile</h2>
   <% if current_user.user_profile %>
     
-    <p><%= image_tag @user_profile.image_url(:thumb), :class => "profile-pic" if @user_profile.image_url %></p>
+    <p><%= image_tag @user_profile.image_url,:class => "profile-pic" if @user_profile.image_url %></p>
     <table class="table">
       <tr>
         <th>Tagline</th>

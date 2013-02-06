@@ -14,7 +14,7 @@
     <%= f.input :google, :label => 'Google+ page', :placeholder => 'https://plus.google.com/xxxxx' %>
     <%= f.input :employees, :label => 'No. of employees', :collection => ['1', '2-5', '6-10', '11-20', '21-50', '50+'] %>
     <%= f.input :hiring, :label => 'Are you currently hiring?' %>
-    <p>Current logo<br /><%= image_tag @business_profile.image_url(:thumb), :class => "profile-pic" if @business_profile.image_url %></p>
+    <p>Current logo<br /><%= image_tag @business_profile.image_url,:class => "profile-pic" if @business_profile.image_url %></p>
     <%= f.input :image, :as => :file, :label => "Change Logo" %>
   </div>
 

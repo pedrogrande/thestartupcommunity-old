@@ -31,7 +31,6 @@ gem 'turbolinks'
 gem "friendly_id"
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
-gem "rmagick"
 gem "hominid"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.10.0"

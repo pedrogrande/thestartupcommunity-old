@@ -157,7 +157,6 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
-    rmagick (2.13.1)
     rolify (3.2.0)
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
@@ -242,7 +241,6 @@ DEPENDENCIES
   pg (>= 0.14.1)
   quiet_assets (>= 1.0.1)
   rails (= 3.2.11)
-  rmagick
   rolify (>= 3.2.0)
   rspec-rails (>= 2.12.2)
   sass-rails (~> 3.2.3)
