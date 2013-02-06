@@ -1,19 +1,23 @@
 <div class="row">
-  <div class ="span12">
+  <div class ="span9">
     <h1>People Profiles</h1>
     <br />
+  </div>
+  <div class="span3">
+    <% if !current_user.user_profile %>
+      <p pull-right><%= link_to 'Create your personal profile', new_user_profile_path, :class => "btn btn-success" %></p>
+    <% end %>
   </div>
 </div>
 <div class="row">
   <div class="span12">
     <table class="table">
       <% @user_profiles.each do |user_profile| %>
-
         <tr>
             <td width="100px"><%= image_tag(user_profile.image_url(:thumb), :class => "profile-pic") %></td>
-            <td width="100px"><%= link_to user_profile.get_user_name, user_profile_path(user_profile) %></td>
+            <td width="100px"><strong><%= link_to user_profile.get_user_name, user_profile_path(user_profile) %></strong></td>
             <td>
-              <p><strong><%= user_profile.tagline %></strong></p>
+              <p><%= user_profile.tagline %></p>
               <p><strong>About:</strong> <%= user_profile.about[0, 200] %></p>
               <br />
 

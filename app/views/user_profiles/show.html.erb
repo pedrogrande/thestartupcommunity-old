@@ -24,18 +24,25 @@
   <div class="span4">
     <h3>Contact details</h3>
     <table class="table">
-      <tr>
-                <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
-        <td><a href="mailto:'<%= @user_profile.email %>'"><%= @user_profile.email %></a></td>
-      </tr>
-      <tr>
-        <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
-        <td><a href="tel:'<%= @user_profile.phone %>'"><%= @user_profile.phone %></a></td>
-      </tr>
-      <tr>
-        <th><i class="icon-laptop icon-2x"></i></th>
-        <td><a href='<%= @user_profile.url.to_s %>' target="_blank"><%= @user_profile.url.to_s %></a></td>
-      </tr>      <% if @user_profile.twitter.to_s != '' %>
+      <% if @user_profile.email.to_s != '' %>
+        <tr>
+          <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
+          <td><a href="mailto:'<%= @user_profile.email %>'"><%= @user_profile.email %></a></td>
+        </tr>
+      <% end %>
+      <% if @user_profile.phone.to_s != '' %>
+        <tr>
+          <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
+          <td><a href="tel:'<%= @user_profile.phone %>'"><%= @user_profile.phone %></a></td>
+        </tr>
+      <% end %>
+      <% if @user_profile.url.to_s != '' %>
+        <tr>
+          <th><i class="icon-laptop icon-2x"></i></th>
+          <td><a href='<%= @user_profile.url.to_s %>' target="_blank"><%= @user_profile.url.to_s %></a></td>
+        </tr>      
+      <% end %>
+      <% if @user_profile.twitter.to_s != '' %>
         <tr>
           <th><i class="icon-twitter icon-2x"></i></th>
           <td><a href='<%= @user_profile.twitter.to_s %>' target="_blank"><%= @user_profile.twitter %></a></td>

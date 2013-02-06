@@ -9,8 +9,8 @@
   <div class="span4">
     <%= image_tag(@business_profile.image_url(:thumb), :class => "user-pic") %>
     <p>
-      <% @business_profile.profile_types.each do |profile_type| %>
-        <%= profile_type.name %>
+      <% @business_profile.profile_types.each_with_index do |profile_type, index| %>
+        <%= profile_type.name %> <% if index < @business_profile.profile_types.count - 1 %> | <% end %>
       <% end %>
     </p>
     <p>
@@ -30,7 +30,12 @@
         <b><%= link_to user.name, user_profile_path(user.user_profile) %></b></p>
       <% end %>
     <% end %>
+
+
+
+
     <% if user_signed_in? && !current_user.works_here?(@business_profile) %>
+      <p></p>
       <p><%= link_to 'I work here', join_business_profile_path, :method => :post, :class => 'btn' %></p>
     <% end %>
     <% if user_signed_in? && current_user.works_here?(@business_profile) %>
@@ -40,22 +45,31 @@
 
   <div class="span4">
     <table class="table">
-      <tr>
-        <th width="50px"> &nbsp;<i class="icon-map-marker icon-2x"></i> </th>
-        <td><a href="http://maps.google.com/maps?q=<%= @business_profile.address %>"><%= @business_profile.address %></a></td>
-      </tr>
-      <tr>
-        <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
-        <td><a href="mailto:'<%= @business_profile.email %>'"><%= @business_profile.email %></a></td>
-      </tr>
-      <tr>
-        <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
-        <td><a href="tel:'<%= @business_profile.phone %>'"><%= @business_profile.phone %></a></td>
-      </tr>
-      <tr>
-        <th><i class="icon-laptop icon-2x"></i></th>
-        <td><a href='<%= @business_profile.url.to_s %>' target="_blank"><%= @business_profile.url.to_s %></a></td>
-      </tr>      <% if @business_profile.twitter.to_s != '' %>
+      <% if @business_profile.address.to_s != '' %>
+        <tr>
+          <th width="50px"> &nbsp;<i class="icon-map-marker icon-2x"></i> </th>
+          <td><a href="http://maps.google.com/maps?q=<%= @business_profile.address %>"><%= @business_profile.address %></a></td>
+        </tr>
+      <% end %>
+      <% if @business_profile.email.to_s != '' %>
+        <tr>
+          <th width="50px"><i class="icon-envelope-alt icon-2x"></i> </th>
+          <td><a href="mailto:'<%= @business_profile.email %>'"><%= @business_profile.email %></a></td>
+        </tr>
+      <% end %>
+      <% if @business_profile.phone.to_s != '' %>
+        <tr>
+          <th>&nbsp;&nbsp;<i class="icon-mobile-phone icon-2x"></i></th>
+          <td><a href="tel:'<%= @business_profile.phone %>'"><%= @business_profile.phone %></a></td>
+        </tr>
+      <% end %>
+      <% if @business_profile.url.to_s != '' %>
+        <tr>
+          <th><i class="icon-laptop icon-2x"></i></th>
+          <td><a href='<%= @business_profile.url.to_s %>' target="_blank"><%= @business_profile.url.to_s %></a></td>
+        </tr>      
+      <% end %>
+      <% if @business_profile.twitter.to_s != '' %>
         <tr>
           <th><i class="icon-twitter icon-2x"></i></th>
           <td><a href='<%= @business_profile.twitter.to_s %>' target="_blank"><%= @business_profile.twitter %></a></td>

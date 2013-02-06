@@ -14,32 +14,15 @@
                 <li><%= link_to 'Profiles', user_profiles_path %></li>
                 <li><%= link_to 'Startups', business_profiles_path %></li>
                 <li><%= link_to 'Sydney Startup Map', startup_maps_path %></li>
-                </ul>
-                <ul class="nav pull-right">
+              </ul>
+              <ul class="nav pull-right">
                 <% if user_signed_in? %>
-                  <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                  <% if user_signed_in? %>
-                    <li>
-                    <%= link_to 'My account', user_path(current_user) %>
-                    </li>
-                    <% if current_user.has_role? :admin %>
-                      <li>
-                      <%= link_to 'Admin', admin_path %>
-                      </li>
-                    <% end %>
-                  <li>
-                    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
-                  </li>
-                  <% end %>
-                </ul>
-              <% else %>
-                
-                 <li><%= link_to 'Login/Sign up', new_user_session_path %></li>
-                </ul>
-              <% end %>
-            
-              
+                  <li><%= link_to 'My account', user_path(current_user) %></li>
+                  <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+                <% else %>
+                  <li><%= link_to 'Login/Sign up', new_user_session_path %></li>
+                <% end %>
+              </ul>
             
           </div><!-- /.navbar-inner -->
         </div><!-- /.navbar -->

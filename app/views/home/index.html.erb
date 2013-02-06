@@ -2,7 +2,7 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="span4">
+        <div class="span3">
           
           <h2>Be part of your startup community</h2>
           <p>
@@ -12,7 +12,7 @@
         </div><!-- /.span4 -->
         <div class="span4">
           
-          <h2>Recent startups</h2>
+          <h2>Recently added startups</h2>
           <table class="table table-condensed">
             <% if @business_profiles.count > 0 %>
             <% @business_profiles.each do |profile| %>
@@ -29,16 +29,16 @@
 
           
         </div><!-- /.span4 -->
-        <div class="span4">
-          <h2>Recent profiles</h2>
+        <div class="span5">
+          <h2>Recently added profiles</h2>
           <table class="table table-condensed">
             <% if @user_profiles.count > 0 %>
             <% @user_profiles.each do |user_profile| %>
             
               <tr>
                 <td><%= image_tag(user_profile.image_url(:thumb), :class => "home-pic") %></td>
-                <td><strong><%= link_to user_profile.user.name, user_profile_path(user_profile) %></strong></td>
-                <td><%= user_profile.tagline %></td>
+                <td width="25%"><strong><%= link_to user_profile.user.name, user_profile_path(user_profile) %></strong></td>
+                <td width="60%"><%= user_profile.tagline[0..60] %><%= link_to '...', user_profile_path(user_profile) %></td>
               </tr>
             <% end %>
           <% end %>

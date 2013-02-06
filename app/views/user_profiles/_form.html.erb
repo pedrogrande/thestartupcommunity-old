@@ -6,12 +6,12 @@
     <%= f.input :about, :input_html => { :rows => 5, :class => "span7" }, :label => 'About me - please introduce yourself, your startups/businesses, skills, interests', :required => true %>
     <%= f.input :email %>
     <%= f.input :phone %>
-    <%= f.input :url, :label => 'Your personal website or blog URL' %>
+    <%= f.input :url, :label => 'Your personal website or blog URL', :placeholder => "http://www.my-business.com" %>
     <%= f.input :twitter, :label => 'Twitter handle', :placeholder => '@twitter' %>
-    <%= f.input :facebook, :label => 'Facebook profile URL' %>
-    <%= f.input :google, :label => 'Google+ profile URL' %>
-    <%= f.input :linkedin, :label => 'LinkedIn profile URL' %>
-    <%= f.input :github, :label => 'Github profile URL' %>
+    <%= f.input :facebook, :label => 'Facebook profile URL', :placeholder => "https://facebook.com/your-business-name" %>
+    <%= f.input :google, :label => 'Google+ profile URL', :placeholder => 'https://plus.google.com/xxxxx' %>
+    <%= f.input :linkedin, :label => 'LinkedIn profile URL', :placeholder => 'https://linkedin.com/xxxxx' %>
+    <%= f.input :github, :label => 'Github profile URL', :placeholder => 'https://github.com/xxxxx' %>
     <%= f.input :image, :as => :file %>
   </div>
 

@@ -71,7 +71,7 @@
   <% if @user.business_profiles.count > 0 %>
      <% @user.business_profiles.each do |business_profile| %>
      <p><b><%= link_to business_profile.name, business_profile_path(business_profile) %></b>
-      (<%= business_profile.profile_type.name %>)</p>
+      </p>
     <% end %>
   <% else %>
     <p><%= link_to "Create a new business profile", new_business_profile_path, :class => "btn btn-success" %></p>

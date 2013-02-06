@@ -9,10 +9,15 @@
             
             
               <ul class="nav">
-                <li><a>&copy; 2013 Sydney Dev Camp</a></li>
+                <li><a>&copy; 2013 The Startup Community</a></li>
                 <li><a href="http://www.sydneydevcamp.com" target"_blank">Brought to you by <%= image_tag('FB-logo.png', :class => "footer-logo") %> <span style="color:yellow">Sydney Dev Camp</span></a></li>
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Terms</a></li>
+                <% if user_signed_in? %>
+                  <% if current_user.has_role? :admin %>
+                    <li><%= link_to 'Admin', admin_path %></li>
+                  <% end %>
+                <% end %>
               </ul>
               
             

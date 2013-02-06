@@ -62,7 +62,7 @@ class ProfileTypesController < ApplicationController
 
     respond_to do |format|
       if @profile_type.update_attributes(params[:profile_type])
-        format.html { redirect_to @admin_path, notice: 'Profile type was successfully updated.' }
+        format.html { redirect_to admin_path, notice: 'Profile type was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
