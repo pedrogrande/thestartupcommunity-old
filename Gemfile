@@ -36,3 +36,4 @@ gem "hominid"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.10.0"
 gem "gmaps4rails"
+gem 'mysql2'
