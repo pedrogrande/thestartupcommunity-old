@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.association :profile_types, :as => :check_boxes, :label => 'Select your business type', :required => true %>
     <%= f.input :name, :label => 'Business name' %>
-    <%= f.input :address, :label => 'Business address', :placeholder => 'Street address, suburb, postcode' %>
+    <%= f.input :address, :required => true, :label => 'Business address', :placeholder => 'Street address, suburb, postcode' %>
     <%= f.input :email, :label => 'Email', :placeholder => "user@example.com" %>
     <%= f.input :phone, :label => 'Phone' %>
     <%= f.input :description, :label => 'Description', :input_html => { :rows => 5, :class => "span7" }, :required => true %>
@@ -16,10 +16,10 @@
     <%= f.input :hiring, :label => 'Are you currently hiring?' %>
 
     <%= f.input :image, :as => :file, :label => "Logo" %>
-    <%= f.input :responsible, :label => 'I accept that I will be set as the admininstrator for your business profile.', :input_html => { :class => 'accept' }, :required => true %>
+    <%= f.input :responsible, :label => 'I understand that I will be set as the admininstrator for your business profile.', :required => true, :default => true %>
   </div>
 
   
-    <%= f.submit 'Add your business', :class => "btn btn-success", :id => 'submit', :title => 'You must agree to be adminstrator to register your business.' %>
+    <%= f.submit 'Add your business', :class => "btn btn-success", :title => 'You must agree to be adminstrator to register your business.' %>
   
 <% end %>

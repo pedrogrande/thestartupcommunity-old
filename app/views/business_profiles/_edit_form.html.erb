@@ -4,7 +4,7 @@
   <div class="form-inputs">
     <%= f.association :profile_types, :as => :check_boxes, :label => 'Select your business type', :required => true %>
     <%= f.input :name, :label => 'Business name' %>
-    <%= f.input :address, :label => 'Business address', :placeholder => 'Street address, suburb, postcode' %>
+    <%= f.input :address, :required => true, :label => 'Business address', :placeholder => 'Street address, suburb, postcode' %>
     <%= f.input :email, :label => 'Email' %>
     <%= f.input :phone, :label => 'Phone' %>
     <%= f.input :description, :label => 'Description', :input_html => { :rows => 5, :class => "span7" }, :required => true %>

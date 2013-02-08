@@ -1,6 +1,6 @@
 Tsc003::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -79,7 +79,7 @@ Tsc003::Application.configure do
     password: "Cas1n073!"
   }
 
-
+  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

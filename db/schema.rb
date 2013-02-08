@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(:version => 20130206072028) do
     t.string   "phone"
     t.string   "linkedin"
     t.string   "github"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "gmaps"
     t.integer  "owner"
-    t.boolean  "responsible"
+    t.boolean  "responsible", :default => true
   end
 
   create_table "contact_forms", :force => true do |t|

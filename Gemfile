@@ -4,6 +4,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "asset_sync"
 end
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
@@ -33,6 +34,5 @@ gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem "hominid"
 gem "google_visualr", ">= 2.1.2"
-gem "jquery-datatables-rails", ">= 1.10.0"
 gem "gmaps4rails"
-gem 'mysql2'
+gem "fog", "~> 1.9.0"

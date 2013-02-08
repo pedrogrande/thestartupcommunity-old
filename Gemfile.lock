@@ -32,6 +32,9 @@ GEM
       rails (~> 3.0)
     addressable (2.3.2)
     arel (3.0.2)
+    asset_sync (0.5.4)
+      activemodel
+      fog
     bcrypt-ruby (3.0.1)
     better_errors (0.3.2)
       coderay (>= 1.0.0)
@@ -89,6 +92,7 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     eventmachine (1.0.0)
+    excon (0.16.10)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.2.0)
@@ -99,9 +103,20 @@ GEM
     ffi (1.3.1)
     figaro (0.5.3)
       rails (~> 3.0)
+    fog (1.9.0)
+      builder
+      excon (~> 0.14)
+      formatador (~> 0.2.0)
+      mime-types
+      multi_json (~> 1.0)
+      net-scp (~> 1.0.4)
+      net-ssh (>= 2.1.3)
+      nokogiri (~> 1.5.0)
+      ruby-hmac
     font-awesome-sass-rails (3.0.0.1)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    formatador (0.2.4)
     friendly_id (4.0.9)
     gherkin (2.11.6)
       json (>= 1.7.6)
@@ -111,8 +126,6 @@ GEM
     hominid (3.0.5)
     i18n (0.6.1)
     journey (1.0.4)
-    jquery-datatables-rails (1.11.2)
-      jquery-rails
     jquery-rails (2.2.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -125,7 +138,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.20.1)
     multi_json (1.5.0)
-    mysql2 (0.3.11)
+    net-scp (1.0.6)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.6.5)
     nokogiri (1.5.6)
     orm_adapter (0.4.0)
     pg (0.14.1)
@@ -169,6 +184,7 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
+    ruby-hmac (0.4.0)
     rubyzip (0.9.9)
     sass (3.2.5)
     sass-rails (3.2.6)
@@ -214,6 +230,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  asset_sync
   better_errors (>= 0.3.2)
   binding_of_caller (>= 0.6.8)
   bootstrap-sass (>= 2.2.2.0)
@@ -229,15 +246,14 @@ DEPENDENCIES
   email_spec (>= 1.4.0)
   factory_girl_rails (>= 4.2.0)
   figaro (>= 0.5.3)
+  fog (~> 1.9.0)
   font-awesome-sass-rails
   friendly_id
   gmaps4rails
   google_visualr (>= 2.1.2)
   hominid
-  jquery-datatables-rails (>= 1.10.0)
   jquery-rails
   launchy (>= 2.1.2)
-  mysql2
   pg (>= 0.14.1)
   quiet_assets (>= 1.0.1)
   rails (= 3.2.11)
