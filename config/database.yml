@@ -49,13 +49,13 @@ test: &test
   template: template0
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  adapter: postgresql
+  encoding: unicode
+  database: tsc003_production
+  pool: 5
+  username: Pete
+  password: 
+  template: template0
 
 cucumber:
   <<: *test

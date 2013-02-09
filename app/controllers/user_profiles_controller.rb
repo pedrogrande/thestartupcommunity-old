@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
-before_filter :authenticate_user!, :except => [:show, :index]
-before_filter :check_for_mobile, :only => [:show, :index]
-
+  before_filter :authenticate_user!, :except => [:show, :index]
+  before_filter :check_for_mobile, :only => [:show, :index]
+  caches_page :index, :show
 # GET /user_profiles
   # GET /user_profiles.json
   def index
@@ -48,7 +48,7 @@ before_filter :check_for_mobile, :only => [:show, :index]
     @user_profile = current_user.build_user_profile(params[:user_profile])
     @user_profile.user = current_user
     @user_profile.name = current_user.name
-
+    expire_page :action => :index
     respond_to do |format|
       if @user_profile.save
         format.html { redirect_to user_path(current_user), notice: 'Your profile was successfully created.' }
@@ -64,7 +64,7 @@ before_filter :check_for_mobile, :only => [:show, :index]
   # PUT /user_profiles/1.json
   def update
     @user_profile = current_user.user_profile
-
+    expire_page :action => :index, :show
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
         format.html { redirect_to user_path(current_user), notice: 'Your profile was successfully updated.' }
