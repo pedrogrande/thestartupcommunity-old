@@ -64,7 +64,8 @@ class UserProfilesController < ApplicationController
   # PUT /user_profiles/1.json
   def update
     @user_profile = current_user.user_profile
-    expire_page :action => :index, :show
+    expire_page :action => :index
+    expire_page :action => :show
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
         format.html { redirect_to user_path(current_user), notice: 'Your profile was successfully updated.' }
