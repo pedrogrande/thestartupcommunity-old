@@ -19,6 +19,10 @@
                   <li><%= link_to 'About', about_path(@about_page), :title => "About The Startup Community" %></li>
                 <% end %>
                 
+                  <% if current_user.has_role? :admin %>
+                    <li><%= link_to 'Admin', admin_path %></li>
+                  <% end %>
+                
               </ul>
               
             

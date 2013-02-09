@@ -20,9 +20,17 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
     <%= yield %>
-    <%= render 'layouts/navigation' %>
+    <% if user_signed_in? %>
+      <%= render 'layouts/navigation_in' %>
+    <% else %>
+      <%= render 'layouts/navigation' %>
+    <% end %>
       
-      <%= render 'layouts/footer' %>    
+      <% if user_signed_in? %>
+                <%= render 'layouts/footer_in' %>
+              <% else %>
+                <%= render 'layouts/footer' %>
+              <% end %>    
       <%= yield :scripts %>
       
   </body>

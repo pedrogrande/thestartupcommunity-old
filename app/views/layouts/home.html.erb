@@ -13,7 +13,11 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
 
-    <%= render 'layouts/navigation' %>
+    <% if user_signed_in? %>
+          <%= render 'layouts/navigation_in' %>
+        <% else %>
+          <%= render 'layouts/navigation' %>
+        <% end %>
     <%= render 'layouts/carousel' %>
 
     <div id="main" role="main" class="home-page">
@@ -25,7 +29,11 @@
               <%= yield %>
             </div>
           </div>
-         <%= render 'layouts/footer' %> 
+         <% if user_signed_in? %>
+                <%= render 'layouts/footer_in' %>
+              <% else %>
+                <%= render 'layouts/footer' %>
+              <% end %>
         </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
