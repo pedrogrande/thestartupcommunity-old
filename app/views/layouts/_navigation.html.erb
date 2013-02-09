@@ -16,10 +16,9 @@
                 <li><%= link_to 'Startups', business_profiles_path %></li>
                 <li><%= link_to 'Sydney Startup Map', startup_maps_path %></li>
               </ul>
-              <ul class="nav pull-right">
+               <ul class="nav pull-right">
                 
-                  <li><%= link_to 'My account', user_path(current_user) %></li>
-                  <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
+                <li><%= link_to 'Login/Sign up', new_user_session_path %></li>
                 
               </ul>
             
