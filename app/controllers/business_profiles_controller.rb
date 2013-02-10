@@ -1,5 +1,5 @@
 class BusinessProfilesController < ApplicationController
-  caches_page :index, :show
+  caches_page :index
 
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :check_for_mobile
@@ -112,7 +112,6 @@ class BusinessProfilesController < ApplicationController
   def update
     @business_profile = BusinessProfile.find(params[:id])
     expire_page :action => :index
-    expire_page :action => :show
     respond_to do |format|
       if @business_profile.update_attributes(params[:business_profile])
         format.html { redirect_to @business_profile, notice: 'Business profile was successfully updated.' }

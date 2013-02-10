@@ -1,7 +1,7 @@
 class UserProfilesController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :check_for_mobile, :only => [:show, :index]
-  caches_page :index, :show
+  caches_page :index
 # GET /user_profiles
   # GET /user_profiles.json
   def index
@@ -65,7 +65,6 @@ class UserProfilesController < ApplicationController
   def update
     @user_profile = current_user.user_profile
     expire_page :action => :index
-    expire_page :action => :show
     respond_to do |format|
       if @user_profile.update_attributes(params[:user_profile])
         format.html { redirect_to user_path(current_user), notice: 'Your profile was successfully updated.' }
