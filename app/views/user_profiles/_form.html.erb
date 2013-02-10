@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :tagline, :input_html => { :class => "xxlarge" }, :label => 'Describe yourself in one line' %>
-    <%= f.input :about, :input_html => { :rows => 5, :class => "span7" }, :label => 'About me - please introduce yourself, your startups/businesses, skills, interests', :required => true %>
-    <%= f.input :email %>
+    <%= f.input :tagline, :input_html => { :class => "input-xxlarge" }, :label => 'Describe yourself in one line' %>
+    <%= f.input :about, :input_html => { :rows => 5, :class => "span6" }, :label => 'About me - please introduce yourself, your startups/businesses, skills, interests', :required => true %>
+    <%= f.input :email, :hint => "Your email will not be displayed on your profile unless you enter it here." %>
     <%= f.input :phone %>
     <%= f.input :url, :label => 'Your personal website or blog URL', :placeholder => "http://www.my-business.com" %>
     <%= f.input :twitter, :label => 'Twitter handle', :placeholder => '@twitter' %>

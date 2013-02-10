@@ -23,7 +23,7 @@
       <%= f.input :password, :required => true %>
       <%= f.input :password_confirmation, :required => true %>
       <%= f.input :opt_in, :label => false, :inline_label => 'It is ok to send me an email when the functionality of the site is substantially upgraded.' %>
-      <%= f.input :accept_terms, :label => false, :inline_label => 'I agree to the terms and conditions and privacy policy of this site.', :input_html => { :class => 'accept' }, :required => true %>
+      <p>* By clicking on the Register button, you agree to the terms and conditions and privacy policy of this site.</p>
       <%= f.button :submit, 'Register', :class => 'btn-primary', :id => 'submit', :title => 'You must agree to the terms to register' %>
     <% end %>
   </div>
