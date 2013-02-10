@@ -18,6 +18,10 @@
     <p><%= image_tag @user_profile.image_url,:class => "profile-pic" if @user_profile.image_url %></p>
     <table class="table">
       <tr>
+        <th>About me</th>
+        <td><%= @user_profile.about %></td>
+      </tr>
+      <tr>
         <th>Tagline</th>
         <td><%= @user_profile.tagline %></td>
       </tr>
@@ -71,6 +75,7 @@
   <% if @user.business_profiles.count > 0 %>
      <% @user.business_profiles.each do |business_profile| %>
      <p><b><%= link_to business_profile.name, business_profile_path(business_profile) %></b>
+        <% if @user.id == business_profile.owner %> (owner)<% end %>
       </p>
     <% end %>
   <% else %>

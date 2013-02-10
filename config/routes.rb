@@ -1,9 +1,7 @@
 Tsc003::Application.routes.draw do
   
-  get "mobile_menu/index", :id => "mobile_menu"
-  match "mobile_menu" => "mobile_menu#index"
-
-  resources :abouts
+  get "about/index", :id => "about"
+  match "about" => "about#index"
 
 
   resources :contact_forms
@@ -28,6 +26,7 @@ Tsc003::Application.routes.draw do
     member do
       post :join
       post :leave
+      post :remove
     end
   end
 

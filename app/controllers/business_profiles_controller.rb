@@ -31,6 +31,19 @@ class BusinessProfilesController < ApplicationController
     redirect_to @business_profile
   end
 
+  def remove
+    @business_profile = BusinessProfile.find(params[:id])
+    @user = User.find(params[:user])
+
+    if current_user.id == @business_profile.owner
+      @user.business_profiles.delete(@business_profile)
+      flash[:notice] = "You have removed the user from your business profile"
+    else
+      flash[:error] = "You are not authorised to remove the user"
+    end
+    redirect_to @business_profile
+  end
+
   # GET /business_profiles
   # GET /business_profiles.json
   def index

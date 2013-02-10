@@ -1,0 +1,19 @@
+ <h2>2. Business profile</h2>
+    <p>Create a profile for your startup or business. Raise awareness of your business to other startups and tech journalists.</p>
+    <p><%= link_to "Create a new business profile", new_business_profile_path, :class => "btn btn-success" %></p>
+    <% if current_user.business_profiles %>
+      <table class="table table-condensed">
+        <% current_user.business_profiles.each do |profile| %>
+        
+          <tr>
+            <td><%= image_tag(profile.image_url,:class => "home-pic") %></td>
+            <td><strong><%= link_to profile.name, business_profile_path(profile) %></strong></td>
+            <td>
+              <%= link_to 'View', business_profile_path(profile), :class=> "btn btn-info" %>
+              
+              
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>

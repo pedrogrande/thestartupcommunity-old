@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe MobileMenuController do
+describe AboutController do
 
   describe "GET 'index'" do
     it "returns http success" do

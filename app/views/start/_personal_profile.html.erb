@@ -1,0 +1,10 @@
+<h2>1. Personal profile</h2>
+    <% if current_user.user_profile %>
+      <p>Thank you for creating a presonal profile.</p>
+        <%= link_to 'View', user_profile_path(current_user.user_profile), :class=> "btn btn-info" %>
+        <%= link_to 'Edit', user_path(current_user), :class=> "btn btn-warning" %>
+      </p>
+    <% else %>
+      <p>Create a personal profile and be known amongst the Sydney tech startup scene.
+      <p><%= link_to 'Create your personal profile', new_user_profile_path, :class => "btn btn-success" %></p>
+    <% end %>

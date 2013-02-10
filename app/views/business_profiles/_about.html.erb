@@ -19,13 +19,28 @@
       <% if user.user_profile %>
         <p><%= image_tag user.user_profile.image_url,:class => "profile-pic" if user.user_profile.image_url %>
         <b><%= link_to user.name, user_profile_path(user.user_profile) %></b></p>
+        <% if user_signed_in? && @business_profile.owner == current_user.id && current_user != user %>
+          <%= link_to "This user does not work here", remove_business_profile_path(:user => user), :method => :post, :class => "btn" %>
+        <% end %>
       <% end %>
     <% end %>
-
-    <% if user_signed_in? && !current_user.works_here?(@business_profile) && @business_profile.owner != current_user.id %>
+    
+    <% if !user_signed_in? %>
+      <p>Do you work here?</p> 
+      <p><%= link_to 'Log in', new_user_session_path %> and create a user profile to be added to this page.</p>
+    <% end %>
+    <% if user_signed_in? && !current_user.user_profile %>
+    <p>Do you work here?</p> 
+      <%= link_to 'Create a user profile', new_user_profile_path %> to be added to this page.</p>
+    <% end %>
+    <% if user_signed_in? && !current_user.works_here?(@business_profile) && @business_profile.owner != current_user.id && current_user.user_profile %>
       <p></p>
       <p><%= link_to 'I work here', join_business_profile_path, :method => :post, :class => 'btn' %></p>
     <% end %>
+
+    
+
+
     <% if user_signed_in? && current_user.works_here?(@business_profile) && @business_profile.owner != current_user.id %>
       <p><%= link_to 'I no longer work here', leave_business_profile_path, :method => :post, :class => 'btn' %></p>
     <% end %>
