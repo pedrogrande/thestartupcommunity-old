@@ -4,8 +4,9 @@
   <p>Username: <%= @user.name %></p>
   <p>Email: <%= @user.email if @user.email %></p>
   <br />
-  <%= link_to 'Change email/password', edit_user_registration_path, :class => "btn btn-info" %>
-
+  <% if @user = current_user %>
+    <%= link_to 'Change email/password', edit_user_registration_path, :class => "btn btn-info" %>
+<% end %>
   <br />
   <hr>
   
@@ -62,8 +63,10 @@
       <tr>
 
     </table>
-    <%= link_to 'Edit profile', edit_user_profile_path(@user_profile), :class => "btn btn-info" %>
-    <%= link_to 'View profile', user_profile_path(current_user.user_profile), :class => "btn btn-info" %>
+     <% if @user = current_user %>
+      <%= link_to 'Edit profile', edit_user_profile_path(@user_profile), :class => "btn btn-info" %>
+      <%= link_to 'View profile', user_profile_path(current_user.user_profile), :class => "btn btn-info" %>
+    <% end %>
   
   <% else %>
     <%= link_to 'Create your profile', new_user_profile_path, :class => "btn btn-success" %>
