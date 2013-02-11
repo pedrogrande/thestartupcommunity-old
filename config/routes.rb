@@ -1,8 +1,13 @@
 Tsc003::Application.routes.draw do
   
+  get "sitemaps/show"
+
   get "about/index", :id => "about"
   match "about" => "about#index"
 
+  # get "sitemap.xml" => "sitemap#index", as: "sitemap", defaults: { format: "xml" }
+  resources :sitemaps, :only => :show
+  match "/sitemap.xml", :controller => "sitemaps", :action => "show", :format => :xml
 
   resources :contact_forms
 
