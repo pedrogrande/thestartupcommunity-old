@@ -47,7 +47,7 @@ class BusinessProfilesController < ApplicationController
   # GET /business_profiles
   # GET /business_profiles.json
   def index
-    @profile_types = ProfileType.joins(:business_profiles)
+    @profile_types = ProfileType.all
     @tag = params[:tag]
     if params[:tag].present?
       tag_value = params[:tag]
