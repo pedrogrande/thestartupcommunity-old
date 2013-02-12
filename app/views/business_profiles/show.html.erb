@@ -1,4 +1,4 @@
-<% content_for :title, "Sydney - The Startup Community. List your startup and yourself - get connected!" %>
+<% content_for :title, @business_profile.name + " The Startup Community - Sydney. List yourself and your startup - get connected!" %>
 <% content_for :description, @business_profile.name + @business_profile.description %>
 
 <div class="row">
@@ -9,12 +9,12 @@
 </div>
 
 <div class="row">
-  <div class="span4">
+  <div class="span3">
     <%= render 'about' %>
     
   </div>
 
-  <div class="span4">
+  <div class="span5">
     <%= render 'contact' %>
     
     

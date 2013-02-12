@@ -5,6 +5,7 @@
       <th>Username</th>
       <th>Email</th>
       <th>Registered</th>
+      <th>Opt in</th>
       <th>Role</th>
       <th></th>
       <th></th>
@@ -16,6 +17,7 @@
       <td><%= link_to user.name, user %></td>
       <td><%= user.email %></td>
       <td><%= user.created_at.to_date %></td>
+      <td><%= user.opt_in %>
       <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
       <td>
         <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
