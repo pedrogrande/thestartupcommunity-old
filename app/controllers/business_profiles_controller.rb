@@ -87,6 +87,7 @@ class BusinessProfilesController < ApplicationController
   # GET /business_profiles/1/edit
   def edit
     @business_profile = BusinessProfile.find(params[:id])
+    authorize! :edit, @business_profile
   end
 
   # POST /business_profiles

@@ -40,6 +40,7 @@ class UserProfilesController < ApplicationController
   # GET /user_profiles/1/edit
   def edit
     @user_profile = current_user.user_profile
+    authorize! :edit, @user_profile
   end
 
   # POST /user_profiles
