@@ -27,7 +27,7 @@
       <% if @business_profile.twitter.to_s != '' %>
         <tr>
           <th><i class="icon-twitter icon-2x"></i></th>
-          <td><a href='<%= @business_profile.twitter.to_s %>' target="_blank"><%= @business_profile.twitter %></a></td>
+          <td><a href='http://twitter.com/<%= @business_profile.twitter.to_s %>' target="_blank"><%= @business_profile.twitter %></a></td>
         </tr>
       <% end %>
       <% if @business_profile.facebook.to_s != '' %>
