@@ -39,7 +39,6 @@ class UserProfilesController < ApplicationController
 
   # GET /user_profiles/1/edit
   def edit
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user_profile = current_user.user_profile
   end
 
@@ -64,7 +63,6 @@ class UserProfilesController < ApplicationController
   # PUT /user_profiles/1
   # PUT /user_profiles/1.json
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user_profile = current_user.user_profile
     expire_page :action => :index
     respond_to do |format|
@@ -81,7 +79,6 @@ class UserProfilesController < ApplicationController
   # DELETE /user_profiles/1
   # DELETE /user_profiles/1.json
   def destroy
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user_profile = current_user.user_profile
     @user_profile.destroy
 

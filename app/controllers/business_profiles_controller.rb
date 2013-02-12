@@ -86,7 +86,6 @@ class BusinessProfilesController < ApplicationController
 
   # GET /business_profiles/1/edit
   def edit
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @business_profile = BusinessProfile.find(params[:id])
   end
 
@@ -111,7 +110,6 @@ class BusinessProfilesController < ApplicationController
   # PUT /business_profiles/1
   # PUT /business_profiles/1.json
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @business_profile = BusinessProfile.find(params[:id])
     expire_page :action => :index
     respond_to do |format|
@@ -128,7 +126,6 @@ class BusinessProfilesController < ApplicationController
   # DELETE /business_profiles/1
   # DELETE /business_profiles/1.json
   def destroy
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @business_profile = BusinessProfile.find(params[:id])
     @business_profile.destroy
 
