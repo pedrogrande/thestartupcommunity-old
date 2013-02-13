@@ -37,3 +37,4 @@ gem "google_visualr", ">= 2.1.2"
 gem "gmaps4rails"
 gem "fog", "~> 1.9.0"
 gem 'newrelic_rpm'
+gem 'tilt', "~> 1.3.3"
