@@ -112,8 +112,8 @@ class BusinessProfilesController < ApplicationController
   # PUT /business_profiles/1.json
   def update
     @business_profile = BusinessProfile.find(params[:id])
-    expire_page :action => :index
     
+    respond_to do |format|
       if @business_profile.update_attributes(params[:business_profile])
         format.html { redirect_to @business_profile, notice: 'Business profile was successfully updated.' }
         format.json { head :no_content }
