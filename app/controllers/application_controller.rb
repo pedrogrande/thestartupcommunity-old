@@ -27,4 +27,5 @@ class ApplicationController < ActionController::Base
   end
   helper_method :mobile_device?
 
+
 end
