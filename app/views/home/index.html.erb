@@ -21,7 +21,9 @@
           </table>
 
 
-          <%= link_to 'See more', business_profiles_path, :class => "btn btn-primary" %>
+
+          <div class="pull-right"><%= link_to 'See more', business_profiles_path, :class => "btn btn-primary" %><br><br></div>
+          
         </div><!-- /.span4 -->
         <div class="span6 ">
           <h3><i class="icon-group icon-3x"></i> Recently added user profiles</h3>
@@ -37,7 +39,7 @@
             <% end %>
           <% end %>
           </table>
-        
+          <div class="pull-right"><%= link_to 'See more', user_profiles_path, :class => "btn btn-primary" %><br><br></div>
         </div><!-- /.span4 -->
       </div><!-- /.row -->
 
