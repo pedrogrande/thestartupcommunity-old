@@ -21,8 +21,8 @@ application.js: application-e22cd8ad2e72c268f817203fc94f142c.js
 application/index.js: application-e22cd8ad2e72c268f817203fc94f142c.js
 application.css: application-64e59d7c681e7435cc0f660e243f6602.css
 application/index.css: application-64e59d7c681e7435cc0f660e243f6602.css
-bootstrap-wysihtml5.js: bootstrap-wysihtml5-1ff00319bd53f6b9576131ea953f7c87.js
-bootstrap-wysihtml5/index.js: bootstrap-wysihtml5-1ff00319bd53f6b9576131ea953f7c87.js
+bootstrap-wysihtml5.js: bootstrap-wysihtml5-4baf61792cf23a9d3fcee94f36c80c70.js
+bootstrap-wysihtml5/index.js: bootstrap-wysihtml5-4baf61792cf23a9d3fcee94f36c80c70.js
 bootstrap-wysihtml5.css: bootstrap-wysihtml5-3c7803729a02af5136113ce7cefd2170.css
 bootstrap-wysihtml5/index.css: bootstrap-wysihtml5-3c7803729a02af5136113ce7cefd2170.css
 bootstrap-wysihtml5/wysiwyg-color.css: bootstrap-wysihtml5/wysiwyg-color-302f69eedfbd67c993f8ce2bc64c971c.css
