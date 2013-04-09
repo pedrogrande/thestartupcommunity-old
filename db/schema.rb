@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206072028) do
+ActiveRecord::Schema.define(:version => 20130226131015) do
 
   create_table "abouts", :force => true do |t|
     t.text     "content"
@@ -63,6 +63,19 @@ ActiveRecord::Schema.define(:version => 20130206072028) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "news_items", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "url"
+    t.text     "content"
+    t.integer  "votes"
+    t.boolean  "flagged"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "news_items", ["user_id"], :name => "index_news_items_on_user_id"
 
   create_table "profile_types", :force => true do |t|
     t.string   "name"

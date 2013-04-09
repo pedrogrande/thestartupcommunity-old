@@ -1,0 +1,16 @@
+<%= simple_form_for(@news_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :user %>
+    <%= f.input :title %>
+    <%= f.input :url %>
+    <%= f.input :content %>
+    <%= f.input :votes %>
+    <%= f.input :flagged %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

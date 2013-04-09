@@ -1,5 +1,10 @@
 Tsc003::Application.routes.draw do
   
+  resources :news_items
+
+
+  get "news/index"
+
   get "sitemaps/show"
 
   get "about/index", :id => "about"
