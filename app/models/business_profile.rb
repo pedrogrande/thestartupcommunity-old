@@ -1,5 +1,5 @@
 class BusinessProfile < ActiveRecord::Base
-  acts_as_gmappable :check_process => false
+  acts_as_gmappable #:check_process => false
   mount_uploader :image, ImageUploader
   extend FriendlyId
   friendly_id :name, use: :slugged
