@@ -1,31 +1,31 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
   gem "asset_sync"
 end
 gem 'jquery-rails'
-gem "thin", ">= 1.5.0"
-gem "pg", ">= 0.14.1"
-gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
-gem "database_cleaner", ">= 0.9.1", :group => :test
-gem "email_spec", ">= 1.4.0", :group => :test
-gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
-gem "launchy", ">= 2.1.2", :group => :test
-gem "capybara", ">= 2.0.2", :group => :test
-gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "bootstrap-sass", ">= 2.2.2.0"
-gem "devise", ">= 2.2.3"
-gem "devise_invitable", ">= 1.1.5"
-gem "cancan", ">= 1.6.8"
-gem "rolify", ">= 3.2.0"
-gem "simple_form", ">= 2.0.4"
-gem "quiet_assets", ">= 1.0.1", :group => :development
-gem "figaro", ">= 0.5.3"
-gem "better_errors", ">= 0.3.2", :group => :development
-gem "binding_of_caller", ">= 0.6.8", :group => :development
+gem "thin"
+gem "pg"
+gem "rspec-rails", :group => [:development, :test]
+gem "database_cleaner", :group => :test
+gem "email_spec", :group => :test
+gem "cucumber-rails", :group => :test, :require => false
+gem "launchy", :group => :test
+gem "capybara", :group => :test
+gem "factory_girl_rails", :group => [:development, :test]
+gem "bootstrap-sass"
+gem "devise"
+gem "devise_invitable"
+gem "cancan"
+gem "rolify"
+gem "simple_form"
+gem "quiet_assets", :group => :development
+gem "figaro"
+gem "better_errors", :group => :development
+gem "binding_of_caller", :group => :development
 gem 'font-awesome-sass-rails'
 gem 'bootstrap-wysihtml5-rails'
 gem 'turbolinks'
@@ -33,8 +33,8 @@ gem "friendly_id"
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem "hominid"
-gem "google_visualr", ">= 2.1.2"
+gem "google_visualr"
 gem "gmaps4rails"
-gem "fog", "~> 1.9.0"
+gem "fog"
 gem 'newrelic_rpm'
-gem 'tilt', "~> 1.3.3"
+gem 'tilt'
