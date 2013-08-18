@@ -17,7 +17,7 @@ development:
   encoding: unicode
   database: tsc003_development
   pool: 5
-  username: Pete
+  username: 
   password: 
   template: template0
 

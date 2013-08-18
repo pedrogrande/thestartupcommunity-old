@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130226131015) do
 
-  create_table "abouts", :force => true do |t|
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "business_profile_types", :force => true do |t|
     t.integer  "business_profile_id"
     t.integer  "profile_type_id"
